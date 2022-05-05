@@ -2,7 +2,7 @@
 set -eux
 
 export CGO_ENABLED=0
-export GOBIN=/conntrack-stats-exporter
+#export GOBIN=/conntrack-stats-exporter
 export GOOS=linux
 
 
@@ -16,6 +16,6 @@ fi
 
 go mod verify 
 go test ./...
-go build
+#go build
 
-# go build --ldflags="-X pkg.version=$(git describe --dirty)"
+go build --ldflags="-X pkg.version=$(git describe --dirty)"
