@@ -10,7 +10,7 @@ if [ "$(lscpu | grep Architecture | awk '{print $2}')" = "aarch64" ]; then
     export GOARCH=arm64
 else 
     echo "amd64"
-    export GOARCH=arm64
+    export GOARCH=amd64
 fi
 
 go mod verify 
