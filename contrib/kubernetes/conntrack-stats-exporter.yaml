@@ -18,28 +18,28 @@ spec:
       labels:
         app: conntrack-stats-exporter
       annotations:
-        prometheus.io/scrape: 'true'
-        prometheus.io/port: '9371'
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9371"
     spec:
       hostNetwork: true
       tolerations:
-      - operator: Exists
+        - operator: Exists
       containers:
-      - name: conntrack-stats-exporter
-        image: jwkohnen/conntrack-stats-exporter:v0.2.2
-        imagePullPolicy: Always
-        ports:
-        - name: metrics
-          containerPort: 9371
-          hostPort: 9371
-          protocol: TCP
-        securityContext:
-          privileged: true
-        terminationMessagePolicy: FallbackToLogsOnError
-        resources:
-          requests:
-            cpu: 1m
-            memory: 8Mi
-          limits:
-            cpu: 10m
-            memory: 15Mi
+        - name: conntrack-stats-exporter
+          image: jwkohnen/conntrack-stats-exporter:v0.2.2
+          imagePullPolicy: Always
+          ports:
+            - name: metrics
+              containerPort: 9371
+              hostPort: 9371
+              protocol: TCP
+          securityContext:
+            privileged: true
+          terminationMessagePolicy: FallbackToLogsOnError
+          resources:
+            requests:
+              cpu: 1m
+              memory: 8Mi
+            limits:
+              cpu: 10m
+              memory: 15Mi

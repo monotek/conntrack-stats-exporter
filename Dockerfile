@@ -3,11 +3,12 @@ WORKDIR /conntrack-stats-exporter
 COPY go.mod go.sum ./
 RUN	go mod download
 COPY . .
-RUN	go mod verify
-RUN	./build.sh
+RUN	go mod verify && \
+	./build.sh
 
 FROM alpine:3.15.4
 COPY --from=build /conntrack-stats-exporter/conntrack-stats-exporter /usr/local/sbin/
+# hadolint ignore=DL3018
 RUN	apk update && \
 	apk --no-cache upgrade && \
 	apk --no-cache add conntrack-tools
