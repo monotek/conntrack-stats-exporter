@@ -13,6 +13,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: fix
+        run: apt update; apt install gccgo-go
+
       - name: Lint Code Base
         uses: github/super-linter/slim@v4
         env:
@@ -26,4 +29,4 @@ jobs:
           # VALIDATE_PYTHON: false
           # VALIDATE_PYTHON_FLAKE8: false
           # VALIDATE_PYTHON_BLACK: false
-          # VALIDATE_YAML: false
+          VALIDATE_YAML: false
