@@ -4,9 +4,9 @@ name: Lint Code Base
 on: pull_request
 
 jobs:
-  build:
+  lint:
     name: Lint Code Base
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
